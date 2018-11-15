@@ -1,6 +1,7 @@
 "use strict";
 // Listen to fetch events
 self.addEventListener('fetch', function (event) {
+  console.log('fetch', fetch)
   // Check if the image is a jpeg
   if (/\.jpg$|.png$/.test(event.request.url)) {
     // Inspect the accept header for WebP support
