@@ -22,6 +22,7 @@ self.addEventListener('fetch', function (event) {
           if(response) {
             return response
           }
+        }).catch(function() {
           return fetch(event.request.url)
         })
       );
