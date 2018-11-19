@@ -18,6 +18,11 @@ self.addEventListener('fetch', function (event) {
       event.respondWith(
         fetch(returnUrl, {
           mode: 'no-cors'
+        }).then(function(response) {
+          if(response) {
+            return response
+          }
+          return fetch(event.request.url)
         })
       );
     }
