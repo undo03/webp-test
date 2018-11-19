@@ -19,10 +19,10 @@ self.addEventListener('fetch', function (event) {
         fetch(returnUrl, {
           mode: 'no-cors'
         }).then(function(response) {
-          console.log(response)
-          if(response) {
-            return response
-          }
+          if(response.status === 404) {
+            return fetch(event.request.url)
+          } 
+          return response
         }).catch(function() {
           return fetch(event.request.url)
         })
